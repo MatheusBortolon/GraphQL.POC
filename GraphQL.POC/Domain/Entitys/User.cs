@@ -2,7 +2,7 @@
 
 namespace GraphQL.POC.Domain.Entitys
 {
-    public struct User
+    public class User
     {
         public string Name { get; set; }
         public string Document { get; set; }

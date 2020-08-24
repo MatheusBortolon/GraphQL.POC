@@ -8,7 +8,7 @@ namespace GraphQL.POC.Persistency
     {
         public static IServiceCollection RegisterPersistency(this IServiceCollection services)
         {
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddSingleton<IUserRepository, UserRepository>();
             
             return services;
         }
