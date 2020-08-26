@@ -1,4 +1,3 @@
-using GraphiQl;
 using GraphQL.POC.Domain;
 using GraphQL.POC.Persistency;
 using Microsoft.AspNetCore.Builder;
@@ -24,23 +23,23 @@ namespace GraphQL.POC
                 .RegisterDomain()
                 .RegisterPersistency()
                 .AddSwagger()
-                .AddControllers(); 
+                .AddGraphQL()
+                .AddControllers();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            
-            // Ativando middlewares para uso do Swagger
+
             app.UseSwagger()
                .AddSwagger()
-               .UseGraphiQl()
                .UseRouting()
+               .AddGraphQL()
                .UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
+
 }

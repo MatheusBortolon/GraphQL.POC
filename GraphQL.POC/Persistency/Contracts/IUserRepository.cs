@@ -1,12 +1,12 @@
 ﻿using GraphQL.POC.Domain.Entitys;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace GraphQL.POC.Persistency.Contracts
 {
     public interface IUserRepository
     {
-        IEnumerable<User> GetUsers();
-        IEnumerable<User> GetUsersByDocument(string document);
-        IEnumerable<User> GetUsersByPartialName(string partialName);
+        IQueryable<User> GetUsers();
+        IQueryable<User> GetUsersByDocument(string document);
+        IQueryable<User> GetUsersByPartialName(string partialName);
     }
 }
